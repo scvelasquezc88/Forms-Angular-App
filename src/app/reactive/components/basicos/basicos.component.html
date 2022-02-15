@@ -1,0 +1,88 @@
+<h2 class="mb-4">Template: Basicos</h2>
+
+<div class="row">
+
+    <div class="col">
+
+        <form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+            <div class="mb-2 row">
+                <div class="col-md-3">
+                    <label for="producto" class="col-form-label">Producto:</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" id="producto" formControlName="nombre" class="form-control" placeholder="Ingresa un producto">
+                    <span class="form-text text-danger" *ngIf="messageValidator('nombre')">
+                        El campo es obligatorio y minimo 3 caracteres.
+                    </span>
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <div class="col-md-3">
+                    <label for="inputPassword6" class="col-form-label">Precio:</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="number" formControlName="precio" class="form-control">
+                    <span class="form-text text-danger" *ngIf="messageValidator('precio')">
+                        El precio debe ser 0 o mayor
+                    </span>
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <div class="col-md-3">
+                    <label class="col-form-label">Impuesto:</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="number" formControlName="impuesto" class="form-control">
+                    <span class="form-text text-danger" *ngIf="messageValidator('impuesto')">
+                        El campo es obligatorio.
+                    </span>
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <div class="col-sm-3">
+                    <label for="inputPassword6" class="col-form-label">Stock:</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="number" formControlName="stock" class="form-control">
+                    <span class="form-text text-danger" *ngIf="messageValidator('stock')">
+                        El campo es obligatorio.
+                    </span>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-5">
+                <button type="submit" 
+                        class="btn btn-primary">Enviar</button>
+                <button type="reset" class="btn btn-warning">Borrar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="mt-3 row">
+    <div class="col">
+        <small>
+            <h3>Valores</h3>
+            <pre>
+                {{ miFormulario.value | json }}
+            </pre>
+
+            <h3>Valid</h3>
+            <pre>
+                {{ miFormulario.valid | json }}
+            </pre>
+
+            <h3>Touched</h3>
+            <pre>
+                {{ miFormulario.touched | json }}
+            </pre>
+
+
+            <h3>Pristine</h3>
+            <pre>
+                {{ miFormulario.pristine | json }}
+            </pre>
+        </small>
+    </div>
+</div>

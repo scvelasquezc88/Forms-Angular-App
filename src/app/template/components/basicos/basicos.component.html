@@ -1,0 +1,99 @@
+<h2 class="mb-4">Template: Basicos</h2>
+
+<div class="row">
+
+    <div class="col">
+
+        <form   (ngSubmit)="guardar()" 
+                #miFormulario="ngForm"
+                autocomplete="off">
+            <div class="mb-2 row">
+                <div class="col-md-3">
+                    <label for="inputPassword6" class="col-form-label">Producto:</label>
+                </div>
+                <div class="col-md-9">
+                    <input  type="text" 
+                            class="form-control"
+                            name="producto"
+                            ngModel
+                            required
+                            placeholder="Ingresa un producto"
+                            minlength="3">
+                    <span   *ngIf="validProduct()" 
+                            class="form-text text-danger">
+                        El campo es obligatorio.
+                    </span>
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <div class="col-md-3">
+                    <label for="inputPassword6" class="col-form-label">Precio:</label>
+                </div>
+                <div class="col-md-9">
+                    <input  type="number" 
+                            class="form-control"
+                            name="precio"
+                            ngModel
+                            required>
+                    <span *ngIf="validPrice()" class="form-text text-danger">
+                        El precio debe ser 0 o mayor
+                    </span>
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <div class="col-md-3">
+                    <label class="col-form-label">Impuesto:</label>
+                </div>
+                <div class="col-md-9">
+                    <input  type="number" 
+                            class="form-control"
+                            name="iva"
+                            ngModel
+                            required>
+                    <span *ngIf="miFormulario.controls.iva?.touched &&
+                                    miFormulario.controls.iva?.invalid" class="form-text text-danger">
+                        El campo es obligatorio.
+                    </span>
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <div class="col-sm-3">
+                    <label for="inputPassword6" class="col-form-label">Stock:</label>
+                </div>
+                <div class="col-md-9">
+                    <input  type="number" 
+                            class="form-control"
+                            name="stock"
+                            ngModel
+                            required>
+                    <span *ngIf="miFormulario.controls.stock?.touched &&
+                                miFormulario.controls.stock?.invalid" class="form-text text-danger">
+                        El campo es obligatorio.
+                    </span>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-5">
+                <button type="submit"
+                        class="btn btn-primary"
+                        [disabled]="miFormulario.invalid">Enviar</button>
+                <button type="reset" class="btn btn-warning">Borrar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="mt-3 row">
+    <div class="col">
+        <small>
+            <pre>
+                {{ miFormulario.value | json }}
+            </pre>
+
+            <pre>
+                {{ miFormulario.valid | json }}
+            </pre>
+        </small>
+    </div>
+</div>
