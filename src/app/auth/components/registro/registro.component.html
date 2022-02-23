@@ -1,0 +1,117 @@
+<h2 class="mb-4">Registro Validaciones</h2>
+
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="onSave()"  autocomplete="off" [formGroup]="miFormulario" >
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label" for="nombre">Nombre:</label>
+                <div class="col-sm-9">
+                    <input  type="text" 
+                            id="nombre" 
+                            class="form-control"
+                            placeholder="Ingrese el nombre y apellido del usuario" 
+                            formControlName="nombre" />
+                    <span class="form-text text-danger"
+                          *ngIf="onValidations('nombre')"  
+                    >
+                    El campo es Obligatorio
+                </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label" for="email">Email:</label>
+                <div class="col-sm-9">
+                    <input  type="email" 
+                            id="email" 
+                            class="form-control"
+                            formControlName="email"
+                            placeholder="Ingrese el email del usuario" />
+                    <span   class="form-text text-danger"
+                            *ngIf="onValidations('email')">
+                        El campo es Obligatorio y con formato de Email
+                    </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label" for="username">NickName</label>
+                <div class="col-sm-9">
+                    <input  type="text" 
+                            id="username" 
+                            class="form-control"
+                            formControlName="username"
+                            placeholder="Ingrese el nickname del usuario" />
+                            <span   class="form-text text-danger"
+                            *ngIf="onValidations('username')">
+                        El NickName no es valido
+                    </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label" for="password">Password:</label>
+                <div class="col-sm-9">
+                    <input type="password" id="password" class="form-control" autocomplete="off"
+                        placeholder="Ingrese el password del usuario" />
+                    <span class="form-text text-danger">El campo es Obligatorio</span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label" for="Confirmpassword">Confirmar password:</label>
+                <div class="col-sm-9">
+                    <input type="password" id="Confirmpassword" class="form-control" autocomplete="off"
+                        placeholder="Comfirmar el password del usuario" />
+                    <span class="form-text text-danger">El campo es Obligatorio</span>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            class="btn btn-primary float-end">
+                        Crear Registro
+                    </button>
+                </div>
+            </div>
+
+
+
+        </form>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h3>Valores Formulario</h3>
+        <pre> {{ miFormulario.value | json }}</pre>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <h3>Formulario Valido</h3>
+        <pre> {{ miFormulario.valid | json }}</pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h3>nombre Valido</h3>
+        <pre> {{ miFormulario.controls.nombre.errors | json }}</pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h3>UserName Valido</h3>
+        <pre> {{ miFormulario.controls.username.errors | json }}</pre>
+    </div>
+</div>

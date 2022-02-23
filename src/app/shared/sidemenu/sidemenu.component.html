@@ -23,3 +23,17 @@
         {{item.texto}}        
     </li>
 </ul>
+
+
+<h3 class="mt-5">Auth Validaciones</h3>
+<hr>
+
+<ul class="list-group">
+
+    <li *ngFor="let item of AuthMenu" 
+        class="list-group-item"
+        [routerLink]="[item.ruta]"
+        routerLinkActive="active">
+        {{item.texto}}        
+    </li>
+</ul>

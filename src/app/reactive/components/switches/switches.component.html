@@ -1,1 +1,109 @@
-<p>switches works!</p>
+<h3>Reactive <small>Dinamicos</small></h3>
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" [formGroup]="miFormulario">
+            <div class="my-2 row">
+                <div class="col-md-3">
+                    <label class="col-form-label">Genero:</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            formControlName="genero"
+                            value="M"
+                            id="masculino"
+                        />
+                        <label class="form-check-label" for="masculino">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            formControlName="genero"
+                            value="F"
+                            id="femenino"
+                            />
+                        <label class="form-check-label" for="femenino">
+                            Femenino
+                        </label>
+                    </div>
+                </div>
+                <div class="my-2 row">
+                    <div class="col-md-3">
+                        <label class="col-form-label">Notificaciones</label>
+                    </div>
+                    <div class="col-md-9 mt-2">
+                        <div class="form-check form-switch">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                formControlName="notificaciones"
+                                id="Notificaciones"
+                            />
+                            <label class="form-check-label" for="Notificaciones"
+                                >Quiero recibir Notificaciones</label
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-2 row">
+                    <div class="col-md-3">
+                        <label class="col-form-label"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="form-check">
+                            <input  class="form-check-input" 
+                                    type="checkbox"
+                                    id="flexCheckDefault"
+                                    formControlName="condiciones"/>
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Terminos & Condiciones
+                            </label>
+                          </div>
+                    </div>
+                </div>
+
+                <button type="button" 
+                        class="btn btn-primary"
+                        >Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="mt-5 row">
+    <div class="col">
+        <h3>Validacion Formulario</h3>
+        <pre>
+            {{ miFormulario.valid | json }}
+        </pre>
+        
+    </div>
+</div>
+
+<div class="mt-5 row">
+    <div class="col">
+        <h3>Datos Formulario Local</h3>
+        <pre>
+            {{ miFormulario.value | json }}
+        </pre>
+        
+    </div>
+</div>
+
+
+<div class="mt-5 row">
+    <div class="col">
+        <h3>Datos Objeto persona</h3>
+        <pre>{{ persona | json }}</pre>
+    </div>
+</div>
+
